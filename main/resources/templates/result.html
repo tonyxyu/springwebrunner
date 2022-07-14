@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+  <title>Admin Console</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1 th:text="'Status: ' + ${result.status}"  ></h1>
+<p th:text="'Command: ' + ${result.command}" />
+<p th:text="'Message: ' + ${result.message}" />
+<a href="/admin">Submit another command</a>
+</body>
+</html>

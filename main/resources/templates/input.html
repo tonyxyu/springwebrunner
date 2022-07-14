@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+  <title>Admin Console</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <style>
+          .button {
+            background-color: #1c87c9;
+            border: none;
+            color: white;
+            padding: 8px 8px;
+            text-align: left;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+            margin: 2px 2px;
+            cursor: pointer;
+          }
+           .row {
+             display: flex;
+           }
+          .column {
+            float: left;
+            flex: 50%;
+           }
+          .wide{
+            width: 250px;
+          }
+
+        </style>
+</head>
+
+<body>
+
+<h1 th:text = "${h1}"> </h1>
+<h2 th:text = "${h2}"> </h2>
+<form action="#" th:action="@{/admin}" th:object="${input}" method="post">
+  <p>
+    <label> Id: </label>
+    <input type="text" th:field="*{id}" class = "wide"/></p>
+  <p>
+    <label th:text = "${customName} + ': ' "> </label>
+    <input type="text" th:field="*{command}" class = "wide" /></p>
+  <p>
+    <input type="submit" value="Submit" style="cursor: pointer;" />
+    <input type="reset" value="Reset" style="cursor: pointer;" />
+  </p>
+</form>
+
+<h2>List of Commands</h2>
+<div class="row">
+  <div class = "column" th:each="element : ${commandTable}">
+    <p th:text="${element.key}">keyvalue</p>
+    <ul th:each="item : ${element.value}">
+      <form th:action= "@{/admin/command}" method = "get">
+        <button name = "clicked" th:value = "${item}" th:text = "${item}" class = "button" ></button>
+      </form>
+    </ul>
+  </div>
+</div>
+
+</body>
+</html>

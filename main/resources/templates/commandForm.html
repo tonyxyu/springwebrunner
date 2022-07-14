@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+  <title>Admin Console</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+<h1> Admin Console </h1>
+<h2 th:text="'The method you are running is: ' + ${method}"> </h2>
+
+<p th:text="'It takes the following arguments:'"></p>
+<form th:action="@{/admin/submit_form}" th:object="${argumentList}" method="post">
+  <input type="hidden" th:field="*{args[0].methodName}" id="${args[0].methodName}">
+  <!--        <input type="hidden" th:field="*{args[0].arg}" id="">-->
+  <table>
+    <tr th:each="type, iterStat : ${pTypes}">
+      <p>
+        <label th:text="${type} + ' ' + ${pNames[__${iterStat.index}__]} "> label </label>
+        <input type="text" th:field = "*{args[__${iterStat.index}__].arg}">
+      </p>
+    </tr>
+  </table>
+  <p>
+    <input type="submit" value="Submit" style="cursor: pointer;" />
+    <input type="reset" value="Reset" style="cursor: pointer;" />
+  </p>
+</form>
+
+</body>
+</html>
