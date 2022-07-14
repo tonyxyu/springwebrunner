@@ -68,8 +68,7 @@ public class TestMain
 [//]: # (```)
 
 ## Authors
-
-Xintong Yu [@DomPizzie](https://twitter.com/dompizzie)
+Xintong Yu [@tonyxyu](https://github.com/tonyxyu)
 
 ## Version History
 
