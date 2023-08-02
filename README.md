@@ -24,11 +24,6 @@ with @ShellOption with the value field set to the name of the parameter.
 * springframework.shell
 * User's custom configurations
 
-### Installing
-
-* How/where to download your program
-* Any modifications needed to be made to files/folders
-
 ### Executing program
 
 * After importing the WebRunnerPackage, use the @import annotation to import the WebRunner class.
